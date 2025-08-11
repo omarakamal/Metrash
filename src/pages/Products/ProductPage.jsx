@@ -50,6 +50,10 @@ export default function ProductsPage(){
     setSearchParams({ page: "1", limit: String(limit) });
   };
 
+
+  function areParamsPresent(){
+    return searchParams.get("maxPrice") || searchParams.get("minPrice") || searchParams.get("name")
+  }
   return (
     <main className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
@@ -60,7 +64,9 @@ export default function ProductsPage(){
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <h1 className="text-2xl font-bold tracking-tight text-slate-900">Products</h1>
-                <p className="mt-1 text-sm text-slate-600">{data.totalItems} item(s) found</p>
+                {areParamsPresent() ? <p className="mt-1 text-sm text-slate-600">{data.totalItems} item(s) found</p> : <p className="mt-1 text-sm text-slate-600">{data.totalItems} item(s)Total</p>}
+
+         
               </div>
               <div className="flex items-center gap-2">
                 <label className="text-sm text-slate-700">Per page</label>

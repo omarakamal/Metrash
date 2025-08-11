@@ -26,10 +26,10 @@ export default function HighlightedItems(){
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">Popular picks</h2>
-          <a href="/products" className="text-sm font-medium text-emerald-700 hover:text-emerald-800">View all</a>
+          <a href="/products" className="text-sm font-medium text-sky-700 hover:text-sky-800">View all</a>
         </div>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {loading && Array.from({ length: 8 }).map((_, i) => (
+          {loading && Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="aspect-[4/5] animate-pulse rounded-2xl bg-slate-100" />
           ))}
           {!loading && error && (

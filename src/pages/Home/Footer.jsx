@@ -7,7 +7,7 @@ export default function Footer(){
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 text-white font-bold">CG</span>
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-sky-600 text-white font-bold">M</span>
               <span className="text-base font-semibold text-slate-800">Corner Grocer</span>
             </div>
             <p className="mt-4 text-sm text-slate-600">Thanks for shopping local. See you soon!</p>
@@ -20,9 +20,9 @@ export default function Footer(){
             <div>
               <h3 className="text-sm font-semibold text-slate-900">Contact</h3>
               <p className="mt-2 text-sm text-slate-600">
-                <a className="hover:text-emerald-700" href="tel:+97300000000">+973 0000 0000</a><br/>
-                <a className="hover:text-emerald-700" href="https://wa.me/97300000000" target="_blank" rel="noreferrer">WhatsApp us</a><br/>
-                <a className="hover:text-emerald-700" href="mailto:hello@cornergrocery.com">hello@cornergrocery.com</a>
+                <a className="hover:text-sky-700" href="tel:+97300000000">+973 0000 0000</a><br/>
+                <a className="hover:text-sky-700" href="https://wa.me/97300000000" target="_blank" rel="noreferrer">WhatsApp us</a><br/>
+                <a className="hover:text-sky-700" href="mailto:hello@cornergrocery.com">hello@cornergrocery.com</a>
               </p>
             </div>
             <div>

@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-2">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 text-white font-bold shadow-sm">CG</span>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-sky-600 text-white font-bold shadow-sm">M</span>
             <span className="text-lg font-semibold tracking-tight text-slate-800">Corner Grocer</span>
           </Link>
 
@@ -41,7 +41,7 @@ export default function Navbar() {
                 <path d="m21 21-4.3-4.3"/>
               </svg>
             </div>
-            <button type="submit" className="hidden md:inline-flex items-center rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 active:bg-emerald-800">Search</button>
+            <button type="submit" className="hidden md:inline-flex items-center rounded-xl bg-sky-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-700 active:bg-emerald-800">Search</button>
           </form>
         </div>
       </div>
@@ -57,7 +57,7 @@ function NavItem({ to, children }) {
       to={to}
       className={classNames(
         "px-2 py-1.5 rounded-md transition-colors",
-        active ? "text-emerald-700 bg-emerald-50" : "text-slate-700 hover:text-emerald-700"
+        active ? "text-sky-700 bg-sky-50" : "text-slate-700 hover:text-sky-700"
       )}
     >
       {children}
