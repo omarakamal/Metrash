@@ -93,7 +93,7 @@ export default function ProductsPage(){
                 <div className="col-span-full rounded-xl bg-red-50 p-3 text-sm text-red-700 border border-red-200">{error}</div>
               )}
               {!loading && !error && data.products?.map((p) => (
-                <ProductCard key={p._id} product={p} />
+                <ProductCard key={p.id} product={p} />
               ))}
             </div>
 

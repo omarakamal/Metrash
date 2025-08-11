@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
           <span className="shrink-0 rounded-lg bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">BD {Number(price).toFixed(2)}</span>
         </div>
         {description && (
-          <p className="mt-1 line-clamp-2 text-xs text-slate-600">{description}</p>
+          <p className="mt-1 line-clamp-2 text-xs text-slate-600">{description.slice(0,10)}...</p>
         )}
       </div>
     </Link>
