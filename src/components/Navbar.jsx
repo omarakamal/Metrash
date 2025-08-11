@@ -1,28 +1,66 @@
-import { Link, useLocation } from 'react-router-dom'
-import { useAuth } from '../state/AuthContext.jsx'
+import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+function classNames(...c){return c.filter(Boolean).join(" ");}
 
 export default function Navbar() {
-  const { user, logout } = useAuth()
-  const { pathname } = useLocation()
+  const navigate = useNavigate();
+  const [q, setQ] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if (q.trim()) params.set("name", q.trim());
+    navigate({ pathname: "/products", search: params.toString() });
+  };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
-      <div className="container-max flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand text-white font-bold">GB</span>
-          <span className="font-semibold">GreenBasket</span>
-        </Link>
-        <nav className="flex items-center gap-2">
-          {user ? (
-            <>
-              <Link to="/admin" className={`btn-ghost ${pathname === '/admin' ? 'bg-gray-100' : ''}`}>Dashboard</Link>
-              <button onClick={logout} className="btn-ghost">Logout</button>
-            </>
-          ) : (
-            <Link to="/admin/login" className="btn-primary">Admin Login</Link>
-          )}
-        </nav>
+    <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between gap-4">
+          <Link to="/" className="flex items-center gap-2">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 text-white font-bold shadow-sm">CG</span>
+            <span className="text-lg font-semibold tracking-tight text-slate-800">Corner Grocer</span>
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            <NavItem to="/">Home</NavItem>
+            <NavItem to="/products">Products</NavItem>
+          </nav>
+
+          <form onSubmit={onSubmit} className="flex flex-1 md:flex-initial items-center gap-2">
+            <div className="relative w-full md:w-80">
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="Search products…"
+                className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3 text-sm outline-none ring-0 focus:border-emerald-500 shadow-sm"
+              />
+              <svg aria-hidden className="absolute left-3 top-2.5 h-5 w-5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.3-4.3"/>
+              </svg>
+            </div>
+            <button type="submit" className="hidden md:inline-flex items-center rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 active:bg-emerald-800">Search</button>
+          </form>
+        </div>
       </div>
     </header>
-  )
+  );
+}
+
+function NavItem({ to, children }) {
+  const location = useLocation();
+  const active = location.pathname === to;
+  return (
+    <Link
+      to={to}
+      className={classNames(
+        "px-2 py-1.5 rounded-md transition-colors",
+        active ? "text-emerald-700 bg-emerald-50" : "text-slate-700 hover:text-emerald-700"
+      )}
+    >
+      {children}
+    </Link>
+  );
 }

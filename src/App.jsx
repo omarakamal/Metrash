@@ -1,26 +1,35 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Home from './pages/Home.jsx'
-import AdminLogin from './pages/AdminLogin.jsx'
-import AdminDashboard from './pages/AdminDashboard.jsx'
-import Navbar from './components/Navbar.jsx'
-import Footer from './components/Footer.jsx'
-import ProtectedRoute from './components/ProtectedRoute.jsx'
-import ToastHost from './components/ToastHost.jsx'
+// src/App.jsx
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/Home/Homepage";
+import ProductsPage from "./pages/Products/ProductPage";
 
-export default function App() {
+function NotFound(){
   return (
-    <div className="min-h-screen grid grid-rows-[auto,1fr,auto]">
-      <Navbar />
-      <main className="py-6">
+    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      <div className="text-center">
+        <p className="text-sm font-medium text-emerald-700">404</p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">Page not found</h1>
+        <p className="mt-2 text-sm text-slate-600">Sorry, we couldn’t find the page you’re looking for.</p>
+        <div className="mt-6">
+          <Link to="/" className="inline-flex items-center rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">Go home</Link>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export default function App(){
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-white text-slate-800">
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </main>
-      <Footer />
-      <ToastHost />
-    </div>
-  )
+      </div>
+    </BrowserRouter>
+  );
 }
