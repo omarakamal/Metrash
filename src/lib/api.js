@@ -11,4 +11,13 @@ export async function fetchProducts(paramsObj = {}) {
   if (!res.ok) throw new Error("Failed to fetch products");
   return res.json();
 }
+export async function fetchProduct(id) {
+  if (!id) throw new Error("Missing product id");
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/products/${id}`);
+  if (!res.ok) {
+    if (res.status === 404) throw new Error("Product not found");
+    throw new Error("Failed to fetch product");
+  }
+  return res.json();
+}
 

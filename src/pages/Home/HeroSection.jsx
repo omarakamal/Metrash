@@ -25,7 +25,7 @@ export default function HeroSection(){
           <div>
             <div className="relative">
               <div className="absolute -inset-4 -z-10 rounded-3xl bg-sky-200/50 blur-2xl" />
-              <img alt="Corner Grocer" className="w-full rounded-3xl shadow-xl ring-1 ring-black/5" src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npGaEQPzljIMK06berJysxA7btUG5_TFvIukr5yVb1T0h03tSzZQYtNYVAGk597j2d_IeFdf-2p2V8XTt9hFVudiaEG5aF7ATE88GA9FZG-2Zs5Yh8E-R1EecAi_mOJs8l0A4U=s1360-w1360-h1020-rw"/>
+              <img alt="Corner Grocer" className="w-full rounded-3xl shadow-xl ring-1 ring-black/5" src="./Metrash-Hero.webp"/>
             </div>
           </div>
         </div>

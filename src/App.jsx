@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/Home/Homepage";
 import ProductsPage from "./pages/Products/ProductPage";
-
+import ProductDetailPage from "./pages/Products/ProductDetailPage";
 function NotFound(){
   return (
     <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
@@ -27,6 +27,8 @@ export default function App(){
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/:id" element={<ProductDetailPage />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

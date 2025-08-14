@@ -36,7 +36,7 @@ export default function HighlightedItems(){
             <div className="col-span-full text-sm text-red-600">{error}</div>
           )}
           {!loading && !error && items.map((p) => (
-            <ProductCard key={p._id} product={p} />
+            <ProductCard key={p.id} product={p} />
           ))}
         </div>
       </div>

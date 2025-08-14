@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
-  const { name, price, description, image_url:imageUrl, _id } = product;
+  const { name, price, description, image_url:imageUrl, id } = product;
   return (
-    <Link to={`/products/${_id || "#"}`} className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <Link to={`/products/${id || "#"}`} className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
       <div className="aspect-[4/5] w-full overflow-hidden bg-slate-50">
         {imageUrl ? (
           <img src={imageUrl} alt={name} className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
